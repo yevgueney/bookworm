@@ -1,0 +1,46 @@
+<!-- Where the social buttons will go --> 
+<script src="http://share.donreach.com/buttons.js"></script>
+<div class="don-share" data-title="test" data-url="http://facebook.com" data-bubbles="right" data-style="short">
+    <div class="don-share-total"></div>
+    <div class="don-share-facebook"></div>
+    <div class="don-share-twitter"></div>
+    <div class="don-share-google"></div>
+  </div>
+
+<script type="text/javascript"> 
+  (function() {
+    var dr = document.createElement('script');
+    dr.type = 'text/javascript'; dr.async = true;
+    dr.src = '//share.donreach.com/buttons.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dr);
+  })();
+</script>
+<h1 class="current-category"><%= params[:category] %></h1>
+
+
+<% if @books.count == 0 %>
+<h1>There are no books in this category!</h1>
+<% else %>
+
+<div class="row">
+
+
+
+<% @books.each do |book| %>
+
+<div class="col-md-3">
+<a href="/books/<%= book.id %>">
+	<%= image_tag book.book_img.url(:book_index), class: "book" %>
+
+</a>
+</div>
+
+<% end %>
+
+</div>
+
+<% end %>
+
+<div class="col=md-6 col=md-offset-3">
+<h5>Copyright 2016. BookWorm. All Rights Reserved</h5>
+</div>
